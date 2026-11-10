@@ -1,6 +1,6 @@
-# Claude / Codex Skills – a Claude és Codex beállításom
+# Claude / Codex Skill – a Claude és Codex beállításom
 
-Ez a tároló megmutatja, milyen **bővítményeket (pluginokat)**, **skilleket** és **csatlakozókat** használok a Claude és a Codex asztali appjaiban, és segít ugyanezt **egyetlen bemásolt szöveggel** beállítani nálad is. Nem kell hozzá programozni tudni, és terminált sem kell megnyitnod: a parancsokat az MI futtatja le helyetted.
+Ez a tároló megmutatja, milyen **bővítményeket (pluginokat)**, **skilleket** és **csatlakozókat** használok a Claude és a Codex asztali appjaiban, és segít ugyanezt **egyetlen bemásolt szöveggel** elindítani. A cél az, hogy ugyanazt a beállítást könnyen lehessen átvinni más gépekre és más felhasználókhoz is.
 
 > Ebben a tárolóban **nincs jelszó, kulcs vagy személyes adat**. A saját fiókjaidat te kötöd be.
 
@@ -36,7 +36,7 @@ A „Skillek” oszlop azt mutatja, hány skillt hoz a plugin. A forrás az a Gi
 | `agent-skills` | Addy Osmani teljes fejlesztési folyamata a specifikációtól az élesítésig | 34 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | igen | igen |
 | `diagram-design` | Szép, szerkesztői minőségű diagramok | 7 | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | igen | igen |
 | `humanizer` | MI-hangzású szöveg átírása természetesre | 1 | [blader/humanizer](https://github.com/blader/humanizer) | igen | igen, csak skill |
-| `ui-ux-pro-max` | UI/UX tervezési adatbázis: stílusok, színek, betűk | 7 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | igen | igen, projektenként |
+| `ui-ux-pro-max` | UI/UX tervezési adatbázis: stílusok, színek, betűk | 7 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | igen | igen, projektben használható |
 | `claude-mem` | Munkamenetek közti memória | 30 | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | igen | opcionális, kézzel |
 | `claude-mem-cowork` | A Claude-Mem a Cowork-höz, a felhőbe (cmem.ai) küld adatot | 3 | az app plugin-böngészője | igen | nem |
 | `claude-code-setup` | Javaslatok Claude Code automatizálásokra | 1 | Anthropic | igen | nem |
@@ -48,7 +48,7 @@ Az Anthropic-pluginokat és a `claude-mem-cowork`-ot csak Claude használja, eze
 
 ### Beépített skillek (a Claude-előfizetéssel járnak, nem kell telepíteni)
 
-`docx` (Word), `xlsx` (Excel), `pptx` (PowerPoint), `pdf`, `docs`, `deep-research` (mélyebb kutatás), `skill-creator` (saját skill készítése), `google-workspace`, `import-memory`, `morning`, `setup-writing-style`. Ezek csak Claude alatt működnek. A Codexben saját beépített `skill-creator` és `skill-installer` van.
+`docx` (Word), `xlsx` (Excel), `pptx` (PowerPoint), `pdf`, `docs`, `deep-research` (mélyebb kutatás), `skill-creator` (saját skill készítése), `google-workspace`, `import-memory`, `morning`, `setup-writing-skill`, `web-search`.
 
 ### Csatlakozók (a saját fiókoddal kell bejelentkezned)
 
@@ -57,6 +57,6 @@ Gmail, Google Drive, Figma, Brevo, Netlify, Firecrawl, GitHub.
 ## Fontos tudnivalók
 
 - A **jelszavaidat és kulcsaidat soha ne oszd meg** senkivel, és ne tedd fel GitHubra. Ha egy fájlban `token`, `key` vagy `password` szerepel, ne másold tovább.
-- A pluginok **idegen fejlesztők kódját** futtatják a gépeden, és egyesek (pl. `ecc`, `claude-mem`) hookokat is beállítanak, vagyis a munkád közben automatikusan lefutó parancsokat. Telepítés előtt nézd meg a plugin oldalát, és csak azt telepítsd, amiben bízol. A telepítő szövegek ezért minden lépés előtt kérnek tőled engedélyt.
+- A pluginok **idegen fejlesztők kódját** futtatják a gépeden, és egyesek (pl. `ecc`, `claude-mem`) hookokat is beállítanak, vagyis a munkád közben automatikusan lefutó parancsokat. Telepítés előtt ellenőrizd a forrást.
 - A `claude-mem` és a `claude-mem-cowork` rögzíti, mit csinálsz a munkamenetekben. A Cowork-változat az adatot a cmem.ai szolgáltatásnak küldi. Ha ez nem kell, hagyd ki őket.
 - Elakadtál? Nézd meg a hibaelhárítást: [Claude](CLAUDE-TELEPITES.md#hibaelhárítás), [Codex](CODEX-TELEPITES.md#hibaelhárítás).
