@@ -1,32 +1,31 @@
-# Telepítés a Claude asztali appba (lépésről lépésre)
+# Claude bővítmények telepítése – lépésről lépésre
 
-Szükséged lesz egy **Claude-előfizetésre** (Pro vagy Max) és a **Claude asztali appra** (Windowson és Macen is elérhető). Terminált nem kell megnyitnod: a parancsokat a Claude futtatja le.
+Ez az útmutató akkor való neked, ha a Claude Code bővítményeit szeretnéd telepíteni, de nem vagy fejlesztő. Haladj sorban; ha egy gomb vagy menüpont neve eltér, nézd meg a [hivatalos útmutatót](https://code.claude.com/docs).
 
-## 1. A Claude asztali app telepítése
+> **Biztonság:** a telepítéshez a Claude parancsokat futtathat a gépeden. Olvasd el, mire kér engedélyt, és csak azt hagyd jóvá, amit értesz. A belépési adataidat, jelszavaidat és API-kulcsaidat soha ne másold be.
 
-1. Töltsd le az appot a https://claude.com oldalról, és telepítsd a rendszeredre.
-2. Nyisd meg, és jelentkezz be a Claude-fiókoddal.
-3. Az app tetején válaszd a **Code** fület. Itt működik a Claude Code, vagyis az, ami fájlokkal és kóddal dolgozik a gépeden.
-4. Indíts **helyi (Local)** munkamenetet, és válassz egy mappát a gépeden. Ebben fog dolgozni a Claude. Felhős (cloud) munkamenetben a pluginok nem telepíthetők.
+## 1. Készítsd elő a Claude appot
 
-A hivatalos útmutató mindig naprakész: https://code.claude.com/docs
+1. Töltsd le a Claude asztali alkalmazást a [claude.com](https://claude.com) oldalról, és telepítsd.
+2. Nyisd meg az appot, majd jelentkezz be a Claude-fiókoddal. A bővítmények használatához megfelelő Claude-előfizetésre lehet szükség.
+3. Az appban nyisd meg a **Code** fület. Ez a Claude Code: itt dolgozhat a Claude fájlokkal és kóddal.
+4. Indíts **helyi (Local)** munkamenetet, és válassz egy mappát, amellyel dolgozhat. A felhős (Cloud) munkamenetben az itt leírt telepítés nem működik.
 
-## 2. Az összes plugin telepítése
+## 2. Telepítsd a bővítményeket
 
-### A) Egy bemásolt szöveggel (ajánlott)
+### Ajánlott módszer: másold be a kérést a Claude Code-ba
 
-Nyiss egy új helyi munkamenetet a **Code** fülön, és másold be ezt a szöveget. A Claude lefuttatja a parancsokat, te csak az engedélykéréseket hagyod jóvá.
+1. A **Code** fülön indíts új helyi munkamenetet.
+2. Másold be az alábbi teljes szöveget a Claude-nak.
+3. A Claude műveleteket kérhet tőled. Minden kérésnél olvasd el, mit tenne; csak akkor engedélyezd, ha érted és jóváhagyod.
+4. Várd meg a Claude összefoglalóját. Ha valamit kihagyott, később megpróbálhatod kézzel telepíteni.
 
 ```
-Telepítsd nekem az alábbi Claude Code pluginokat, user scope-ban (minden projektben elérhető legyen).
+Telepítsd nekem a lent felsorolt Claude Code bővítményeket a felhasználói szintre, hogy minden projektemben elérhetők legyenek.
 
-Minden pluginhoz két parancsot futtass le:
-1. claude plugin marketplace add <forrás>
-2. claude plugin install <plugin>@<marketplace neve>
+Minden bővítménynél add hozzá a megadott forrást, majd telepítsd a bővítményt. Ha valamelyik lépés hibázik, ne próbálkozz találomra: folytasd a következővel, a végén pedig mondd el, mi sikerült és mi nem.
 
-Ha egy marketplace neve eltér a megadottól, nézd meg a "claude plugin marketplace list" kimenetét, és azt használd. Ha egy lépés hibázik, ne állj meg: ugord át, folytasd a következővel, és a végén jelezd.
-
-Forrás | plugin@marketplace
+Forrás | Bővítmény neve
 JuliusBrussee/caveman | caveman@caveman
 DietrichGebert/ponytail | ponytail@ponytail
 affaan-m/ECC | ecc@ecc
@@ -34,80 +33,66 @@ addyosmani/agent-skills | agent-skills@addy-agent-skills
 cathrynlavery/diagram-design | diagram-design@diagram-design
 blader/humanizer | humanizer@humanizer
 nextlevelbuilder/ui-ux-pro-max-skill | ui-ux-pro-max@ui-ux-pro-max-skill
-thedotmack/claude-mem | claude-mem (a marketplace nevét a list parancs mutatja)
+thedotmack/claude-mem | claude-mem (ellenőrizd a piactér pontos nevét a listában)
 anthropics/claude-plugins-official | mattpocock-skills@claude-plugins-official és claude-code-setup@claude-plugins-official
-anthropics/knowledge-work-plugins | design és cowork-plugin-management (ez a "Plugin Management"), a marketplace nevét a list parancs mutatja
+anthropics/knowledge-work-plugins | design és cowork-plugin-management (a piactér pontos nevét ellenőrizd a listában)
 
-Szabályok:
-- Az "obsidian-notes", a "Claude mem cowork" és minden, aminek nem találod a forrását, maradjon ki. Ne találgass: a végén sorold fel, melyiket kell nekem kézzel telepítenem az app plugin-böngészőjéből.
-- A claude-mem külön telepítőjét (npx claude-mem install) ne futtasd, előbb kérdezz meg.
-- Ne szerkeszd kézzel a settings.json fájlt, és ne olvasd a ~/.claude/.credentials.json és a ~/.claude.json fájlt.
-- A végén írd ki, mit telepítettél, mit hagytál ki és miért, majd mondd meg, hogy indítsak új munkamenetet.
+Fontos szabályok:
+- Az obsidian-notes, a claude-mem-cowork és minden olyan bővítmény maradjon ki, amelynek nem találod egyértelműen a forrását. Ne találgass; sorold fel ezeket a végén.
+- Ne futtasd a claude-mem külön telepítőjét (npx claude-mem install). Ehhez előbb kérdezz meg.
+- Ne szerkeszd a beállításfájlokat kézzel, és ne olvasd vagy másold át a ~/.claude/.credentials.json vagy ~/.claude.json fájlt.
+- A végén sorold fel, mit telepítettél, mit hagytál ki és miért. Ezután emlékeztess, hogy indítsak új munkamenetet.
 ```
 
-Telepítés után indíts **új munkamenetet** a Code fülön, hogy a pluginok betöltődjenek.
+A `claude-mem` opcionális. Ez rögzítheti a munkamenetek tartalmát, és a teljes működéséhez külön telepítés kell. Ha nem szeretnéd ezt használni, hagyd ki.
 
-Az `obsidian-notes` és a `claude-mem-cowork` plugint az app saját böngészőjéből telepítsd (lásd lent, B).
+### Másik módszer: telepítés az app menüjéből
 
-### B) Kézzel az appban
+Ezt válaszd, ha csak egy bővítményt szeretnél, vagy a fenti módszer nem sikerült.
 
-Akkor jó, ha az A) mód valamelyik lépése nem sikerült, vagy csak egy-egy plugint szeretnél.
+1. Helyi munkamenetben, a **Code** fülön keresd meg a prompt melletti **+** gombot.
+2. Válaszd az **Add plugins** (bővítmények hozzáadása), majd a **Browse plugins** (bővítmények böngészése) lehetőséget. A menüpontok neve appverziónként eltérhet.
+3. Keresd meg a bővítményt, nyisd meg, és válaszd ki, hogy minden projektedben vagy csak az aktuális projektben legyen elérhető.
+4. Ha nem találod, a **Settings → Customize → Plugins → Add marketplace → GitHub repo** menüben add hozzá a forrást `tulajdonos/tároló` alakban. Például: `JuliusBrussee/caveman`.
+5. A telepítés után indíts új munkamenetet.
 
-1. A **Code** fülön, helyi munkamenetben kattints a prompt melletti **+** gombra, és válaszd az **Add plugins** menüpontot. Ha ott **Plugins** áll, válaszd azt, majd a **Browse plugins** lehetőséget. Megnyílik a bővítménybrowser.
-2. Keresd meg a bővítményt, kattints rá, és válaszd ki, hogy kinek települjön (a **te fiókodnak** minden projektben, vagy csak az adott projektnek).
-3. Ha egy plugin nincs a listában, add hozzá a marketplace-ét: **Settings → Customize → Plugins → Add marketplace → GitHub repo**, és írd be a forrást `tulajdonos/tároló` formában.
+A forrásokat és a bővítmények rövid leírását a [README-ben](README.md) találod. Az Anthropic bővítményeit az app saját piacterén keresd.
 
-A lenti forrásokat add hozzá, ha kézzel dolgozol:
+## 3. Csatlakoztass külső szolgáltatásokat (ha szeretnél)
 
-| Plugin | Marketplace forrása |
-|---|---|
-| `caveman` | `JuliusBrussee/caveman` |
-| `ponytail` | `DietrichGebert/ponytail` |
-| `ecc` | `affaan-m/ECC` |
-| `agent-skills` | `addyosmani/agent-skills` |
-| `diagram-design` | `cathrynlavery/diagram-design` |
-| `humanizer` | `blader/humanizer` |
-| `ui-ux-pro-max` | `nextlevelbuilder/ui-ux-pro-max-skill` |
-| `claude-mem` | `thedotmack/claude-mem` |
-| `mattpocock-skills`, `claude-code-setup` | Anthropic hivatalos piactér, az appban alapból megvan |
-| `design`, `plugin-management`, `obsidian-notes`, `claude-mem-cowork` | az app bővítménybrowserében keresd név szerint |
+A csatlakozó például lehetővé teszi, hogy a Claude egy általad engedélyezett Google Drive-fájlt használjon. Csak a szükséges szolgáltatásokat kapcsold be.
 
-A menüpontok nevei az app verziójától függően kicsit eltérhetnek. Ha nem találod valamelyiket, nézd meg a hivatalos útmutatót: https://code.claude.com/docs/en/discover-plugins
+1. Nyisd meg a Claude app **Settings** (Beállítások) oldalát, vagy a [claude.ai](https://claude.ai) oldalt.
+2. Keresd meg a **Settings → Connectors** (Beállítások → Csatlakozók) részt.
+3. Válaszd ki a szolgáltatást, kattints a **Connect** (Csatlakozás) gombra, majd jelentkezz be a saját fiókoddal.
+4. Ellenőrizd, milyen hozzáférést kér a szolgáltatás. Csak akkor engedélyezd, ha megfelel neked.
 
-### Ellenőrzés
+Példák: Gmail, Google Drive, Figma, Brevo, Netlify, Firecrawl és GitHub.
 
-A **+ → Plugins → Manage plugins** oldalon látnod kell a telepített pluginokat bekapcsolva. Itt tudod később kikapcsolni vagy eltávolítani őket. A skilleket a prompt mezőbe írt `/` jellel is megnézheted: `/<plugin>:<skill>` alakban jelennek meg. A teljes listát a [SKILLEK.md](SKILLEK.md) fájlban találod.
+## 4. Ellenőrizd, hogy működik-e
 
-### Mire figyelj
+1. Indíts új munkamenetet a **Code** fülön.
+2. Írd be például: „Készíts egy rövid Word-dokumentumot a bevásárlólistámról.”
+3. Kérd meg a Claude-ot, hogy sorolja fel az elérhető skilleket, például: „Milyen skilleket tudsz használni?”
 
-- A pluginok **idegen fejlesztők kódját** futtatják a gépeden. A `ecc` és a `claude-mem` hookokat is beállít, vagyis a munkád közben automatikusan lefutó parancsokat. Telepítés előtt nézd át a plugin GitHub-oldalát.
-- Az `ecc` nagy csomag (397 skill és parancs), ezért a Claude ettől lassabb és több tokent fogyaszthat. Ha nem kell az összes, kapcsold ki a **Manage plugins** oldalon.
-- A `claude-mem` rögzíti, mit csinálsz a munkamenetekben, és külön telepítőt (Node.js 20+ és Bun) használ a teljes működéshez. Csak akkor telepítsd, ha tudod, mire kell. A hivatalos útmutató: https://docs.claude-mem.ai/installation
-- A harmadik féltől származó piacterek automatikus frissítése alapból ki van kapcsolva. A **Marketplaces** fülön tudod bekapcsolni.
+A **+ → Plugins → Manage plugins** (Bővítmények kezelése) részen ellenőrizheted, illetve kikapcsolhatod a telepített bővítményeket. A teljes skill-lista a [SKILLEK.md](SKILLEK.md) fájlban van.
 
-## 3. Csatlakozók bekötése (Gmail, Drive stb.)
+## Mire figyelj?
 
-1. Nyisd meg az asztali app **Settings** oldalát, vagy a https://claude.ai oldalt a böngészőben.
-2. Menj ide: **Settings → Connectors**
-3. Minden szolgáltatásnál kattints a **Connect** gombra, és jelentkezz be a **saját** fiókoddal.
-
-Csak azt kösd be, amit tényleg használni akarsz. A javasolt lista: Gmail, Google Drive, Figma, Brevo, Netlify, Firecrawl, GitHub.
-
-## 4. Kész, próbáld ki
-
-Nyiss egy új munkamenetet az appban, és írd be például: „Készíts egy rövid Word-dokumentumot a bevásárlólistámról." Ha a Claude elkészíti a fájlt, a beépített `docx` skill működik. A pluginokat így próbálhatod ki: írd be, hogy „Mutasd meg, milyen skillek vannak telepítve", vagy a `caveman` pluginnál írd be: `/caveman`.
+- A bővítmények külső fejlesztők kódját futtathatják. Telepítés előtt nézd meg a forrást, és ne engedélyezz ismeretlen parancsot.
+- Egyes bővítmények automatikusan futó parancsokat, úgynevezett hookokat állíthatnak be. Ha a Claude ilyenre kér engedélyt, előbb olvasd el a részleteket.
+- Az `ecc` nagy csomag: sok skillel és paranccsal jár. Ha nem használod, kapcsold ki a **Manage plugins** részen.
+- A `claude-mem` munkamenetadatokat rögzíthet. Csak akkor telepítsd, ha ezt tudatosan szeretnéd.
+- Soha ne másold át más gépéről a `~/.claude/.credentials.json` vagy `~/.claude.json` fájlt. Ezek belépési adatokat tartalmazhatnak.
 
 ## Hibaelhárítás
 
-| Probléma | Megoldás |
+| Mi történt? | Mit próbálj meg? |
 |---|---|
-| Nem látom a **Code** fület | Frissítsd az asztali appot a legújabb verzióra, majd indítsd újra. |
-| Nem látom a **Plugins** vagy az **Add plugins** menüpontot | Helyi (Local) munkamenetben próbáld, felhős munkamenetben nem érhető el. Frissítsd az appot is. |
-| Az A) mód közben hibát ír egy plugin | Ez normális lehet. A Claude a végén kilistázza a kihagyottakat, ezeket telepítsd a B) móddal. |
-| Nem látok egy plugint a listában | Add hozzá a marketplace-ét a **Settings → Customize → Plugins → Add marketplace** oldalon, a fenti táblázat szerint. |
-| A `claude plugin` parancs ismeretlen | Frissítsd az asztali appot, majd próbáld újra. Régi Claude Code verzióban nem biztos, hogy léteznek a plugin-parancsok. Addig használd a B) módot. |
-| Egy csatlakozó nem enged be | Jelentkezz ki és vissza a Settings → Connectors oldalon, majd csatlakoztasd újra. |
-| Új plugin nem jelenik meg | Indíts új munkamenetet, vagy indítsd újra az appot. |
-| Túl lassú vagy túl sokat beszél a Claude | Kapcsold ki a **Manage plugins** oldalon a nagyobb csomagokat (`ecc`, `claude-mem`). |
-
-**Soha ne másold át** más gépéről a `~/.claude/.credentials.json` és a `~/.claude.json` fájlt. Ezekben a bejelentkezési adataid vannak.
+| Nem látom a **Code** fület. | Frissítsd és indítsd újra a Claude appot. |
+| Nem találom a bővítmények menüjét. | Ellenőrizd, hogy helyi (Local) munkamenetben vagy-e, majd frissítsd az appot. |
+| A bemásolt kérésnél hiba történt. | Nézd meg a Claude összefoglalójában, melyik bővítmény maradt ki. Azt próbáld meg külön, az app menüjéből telepíteni. |
+| Nem találom a keresett bővítményt. | Add hozzá a forrását a **Settings → Customize → Plugins → Add marketplace** menüben, vagy ellenőrizd a [README-ben](README.md) megadott forrást. |
+| A `claude plugin` parancs ismeretlen. | Frissítsd az appot. Addig próbáld a kézi, menüből történő telepítést. |
+| A csatlakozó nem működik. | Ellenőrizd a bejelentkezést a **Settings → Connectors** részen, majd csatlakoztasd újra. |
+| Nem jelenik meg a frissen telepített bővítmény. | Indíts új munkamenetet, vagy zárd be és nyisd meg újra az appot. |

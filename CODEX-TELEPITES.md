@@ -1,24 +1,26 @@
-# Telepítés a Codex asztali appba (kész szöveggel)
+# Codex bővítmények telepítése – lépésről lépésre
 
-A Codex az OpenAI kódoló asszisztense. A lenti szöveget be kell másolnod a Codex appba, és a Codex magától telepíti a pluginokat és a skilleket. Terminált nem kell megnyitnod.
+Ez az útmutató megmutatja, hogyan telepíthetsz skilleket és bővítményeket az OpenAI Codex asztali alkalmazásába. A parancsokat bemásolhatod a Codexbe; nem kell külön terminált megnyitnod.
 
-A Claude-oldali pluginokról és a miértekről a [README.md](README.md) szól, a skillek listája a [SKILLEK.md](SKILLEK.md) fájlban van.
+> **Biztonság:** telepítés közben a Codex engedélyt kérhet parancsok futtatására. Olvasd el, mit tenne, és csak azt hagyd jóvá, amit értesz. Jelszót, belépési adatot vagy API-kulcsot ne másolj be.
 
-## 1. A Codex app telepítése (ha még nincs)
+## 1. Telepítsd és nyisd meg a Codexet
 
-1. Töltsd le a Codex appot macOS-re vagy Windowsra innen: https://developers.openai.com/codex/app. Intel-alapú Macen az Intel verziót válaszd.
-2. Telepítsd, nyisd meg, és jelentkezz be a ChatGPT-fiókoddal (vagy egy OpenAI API-kulccsal).
+1. Töltsd le a Codex asztali alkalmazást a [hivatalos oldalról](https://developers.openai.com/codex/app). macOS-re és Windowsra érhető el.
+2. Telepítsd, nyisd meg, és jelentkezz be a fiókoddal.
+3. A plugin-parancsok használatához **Codex 0.122-es vagy újabb verzió** szükséges. Ha a Codex azt jelzi, hogy nem ismeri a `codex plugin` parancsot, frissítsd az alkalmazást.
 
-A plugin-parancsokhoz **Codex 0.122 vagy újabb** kell. Ha a telepítés közben a Codex azt írja, hogy ismeretlen a `codex plugin` parancs, frissítsd az appot.
+## 2. Másold be a telepítési kérést
 
-## 2. Másold be ezt a szöveget a Codexbe
-
-Nyiss egy új szálat (thread) az appban, és illeszd be ezt. A Codex minden parancs előtt engedélyt kérhet, ezeket hagyd jóvá.
+1. Nyiss egy új beszélgetést (a Codexben ez lehet „thread” vagy „szál”).
+2. Másold be az alábbi teljes kérést.
+3. Ha a Codex engedélyt kér egy parancs futtatására, olvasd el a kérést, és csak akkor hagyd jóvá, ha érted.
+4. A végén kérd meg, hogy mondja el, mi sikerült, és mi maradt ki.
 
 ```
-Telepítsd nekem az alábbi pluginokat és skilleket a Codexbe. Ha egy lépés hibázik, ne állj meg: ugord át, folytasd a következővel, és a végén jelezd.
+Telepítsd nekem az alábbi bővítményeket és skilleket a Codexbe. Ha egy lépés hibázik, ne állj meg: hagyd ki azt a lépést, folytasd a következővel, és a végén mondd el, mi történt.
 
-A) Natív pluginok. Mindegyikhez futtasd le a két parancsot:
+A) Codex-bővítmények. Mindegyiknél add hozzá a piacteret, majd telepítsd a bővítményt:
 - codex plugin marketplace add DietrichGebert/ponytail
   codex plugin add ponytail@ponytail
 - codex plugin marketplace add mattpocock/skills
@@ -30,44 +32,52 @@ A) Natív pluginok. Mindegyikhez futtasd le a két parancsot:
 - codex plugin marketplace add cathrynlavery/diagram-design
   codex plugin add diagram-design@diagram-design
 
-B) Csak skillek (ezeknek nincs natív Codex-pluginjuk):
+B) Csak skillként telepíthető elemek:
 - npx skills add JuliusBrussee/caveman -g -a codex
 - npx skills add blader/humanizer -g -a codex
-Ha az npx nem érhető el vagy hibázik, használd a beépített $skill-installer skillt, vagy klónozd a tárolót egy ideiglenes mappába, és másold a skill-mappákat ide: $HOME/.agents/skills/<skill neve>/SKILL.md. A mappa neve a skill neve. Ha a $HOME/.agents/skills mappa nem létezik, hozd létre.
+Ha az npx parancs nem működik, ne próbálj találomra más parancsokat futtatni. Jelezd a hibát, és mondd el, hogy a beépített $skill-installer vagy a kézi telepítés lehet a következő lépés.
 
 C) ui-ux-pro-max:
-- npm install -g ui-ux-pro-max-cli, majd a megnyitott projektmappában: uipro init --ai codex
-Ez csak az adott projektmappába telepít. Kérdezd meg tőlem, melyik projektbe kérem. Ha minden projektben kell, a letöltött skill-mappát másold a $HOME/.agents/skills alá.
+- Ezt csak akkor telepítsd, ha megmondom, melyik projekthez kérem.
+- A telepítési parancs: npm install -g ui-ux-pro-max-cli, majd a kiválasztott projekt mappájában: uipro init --ai codex.
+- Ez projektmappába telepít. Mielőtt bármit futtatnál, kérdezd meg, melyik projektet használjam.
 
-D) A claude-mem telepítőjét hagyd ki. Interaktív, külön eszközöket (Bun) telepít, és rögzíti a munkámat. Ha kell, majd külön kérem.
+D) A claude-mem telepítését hagyd ki. Külön telepítője van, további eszközöket telepíthet, és munkamenetadatokat rögzíthet. Majd külön kérem, ha szükségem lesz rá.
 
-Szabályok:
-- Ha egy plugin hookot kér engedélyezni (a /hooks menüben), ne engedélyezd helyettem. Írd ki, mit kér, és én döntök.
-- Az ecc-t és az agent-skillst ne telepítsd más módszerrel is ugyanarra a gépre (pl. másoló szkripttel), mert minden skill kétszer jelenne meg.
-- A Claude-hoz kötött dolgokat (design, obsidian-notes, plugin-management, claude-code-setup, claude-mem-cowork, valamint a Csatlakozók) hagyd ki. Ha MCP-szerver kell valamihez, kérdezz, és mondd meg, hol adhatom hozzá a Codex app beállításaiban. Kulcsot vagy jelszót soha ne írj fájlba.
-- Ne olvasd és ne másold a ~/.claude/.credentials.json és a ~/.claude.json fájlt.
-- A végén írd ki, mit telepítettél és mit hagytál ki, majd mondd meg, hogy indítsam újra a Codex appot és nyissak új szálat.
+Biztonsági szabályok:
+- Ha egy bővítmény hook vagy automatikus parancs engedélyezését kéri, ne engedélyezd helyettem. Mondd el, mit kér, és várd meg a döntésemet.
+- Az ecc-t és az agent-skills elemet ne telepítsd másik módszerrel is ugyanarra a gépre, mert a skillek többször jelenhetnek meg.
+- A Claude-hoz tartozó bővítményeket (design, obsidian-notes, plugin-management, claude-code-setup és claude-mem-cowork) hagyd ki. A csatlakozókat se állítsd be; azokat külön, a saját fiókjaimmal intézem.
+- Ne olvasd és ne másold a ~/.claude/.credentials.json vagy ~/.claude.json fájlt.
+- A végén sorold fel, mit telepítettél, mit hagytál ki és miért. Ezután emlékeztess, hogy indítsam újra a Codexet, és nyissak új beszélgetést.
 ```
 
-## 3. Ellenőrzés
+A `ui-ux-pro-max` opcionális, és csak egy kiválasztott projektbe települ. Ha nem tudod, melyik mappát válaszd, hagyd ki.
 
-Zárd be és nyisd meg újra a Codex appot, nyiss új szálat, és kérdezd meg: „Milyen skillek vannak telepítve?" A listában ott kell lennie a telepített skilleknek.
+## 3. Indítsd újra és ellenőrizd
 
-Ha a skillek fájljait is látni szeretnéd, a Codex a felhasználói skilleket innen tölti be: `$HOME/.agents/skills`. A projektekhez tartozó skillek a projekt `.agents/skills` mappájában vannak. A pluginok skilljeit a Codex a plugin-gyorsítótárból tölti be, ezeket nem találod a fenti mappában. A skilleket `@` jellel hívhatod meg, pl. `@spec-driven-development`.
+1. Zárd be, majd nyisd meg újra a Codexet.
+2. Nyiss új beszélgetést.
+3. Kérdezd meg: „Milyen skillek érhetők el?”
+4. A felhasználói skillek mappája általában `$HOME/.agents/skills`. A projekthez telepített skilleket az adott projekt `.agents/skills` mappájában találod.
 
-## Mire figyelj
+A teljes skill-lista a [SKILLEK.md](SKILLEK.md) fájlban van.
 
-- A pluginok **idegen fejlesztők kódját** futtatják a gépeden. Telepítés előtt nézd át a plugin GitHub-oldalát, a linkek a [README.md](README.md) táblázatában vannak.
-- Az `ecc` nagy csomag (397 skill és parancs). Ha nem kell, ne telepítsd, vagy telepítés után kapcsold ki.
-- Egy skillt egy módszerrel telepíts, mert különben kétszer jelenik meg a listában.
+## Mire figyelj?
+
+- A bővítmények külső fejlesztők kódját futtathatják. Telepítés előtt nézd meg a forrást; a hivatkozásokat a [README-ben](README.md) találod.
+- Az `ecc` nagy csomag, sok skillt és parancsot tartalmaz. Ha nincs rá szükséged, ne telepítsd.
+- Ugyanazt a skillt ne telepítsd több módszerrel, mert többször jelenhet meg.
+- A telepítés vagy beállítás során megjelenő engedélykéréseket mindig olvasd el.
 
 ## Hibaelhárítás
 
-| Probléma | Megoldás |
+| Mi történt? | Mit próbálj meg? |
 |---|---|
-| Nem találom a Codex appot | Töltsd le innen: https://developers.openai.com/codex/app. Macen és Windowson is elérhető. |
-| A `codex plugin` parancs ismeretlen | Frissítsd a Codex appot a legújabb verzióra (0.122 vagy újabb kell). |
-| A Codex nem találja egy plugin forrását | Add meg neki a GitHub-tároló URL-jét a [README.md](README.md) táblázatából, amikor megkérdezi. |
-| Egy skill nem jelenik meg | Nézd meg, hogy a `$HOME/.agents/skills/<név>/SKILL.md` fájl létezik-e, és indítsd újra a Codex appot. A régi `~/.codex/skills` mappát a Codex már nem olvassa. |
-| Az `npx` nem működik | Használd a beépített `$skill-installer` skillt, vagy másold a skill-mappát kézzel a `$HOME/.agents/skills` alá. |
-| Egy plugin hookot kér | Olvasd el, mit futtatna. Ha nem bízol benne, ne engedélyezd, a skillek hook nélkül is működnek. |
+| Nem találom a Codex appot. | Töltsd le a [hivatalos oldalról](https://developers.openai.com/codex/app); macOS-re és Windowsra érhető el. |
+| A `codex plugin` parancs ismeretlen. | Frissítsd az appot legalább a 0.122-es verzióra, majd próbáld újra. |
+| A Codex nem találja a bővítmény forrását. | Ellenőrizd a forrás nevét a [README-ben](README.md), és csak megbízható forrást adj hozzá. |
+| Egy skill nem jelenik meg. | Indítsd újra a Codexet. Ellenőrizd, hogy a skill a `$HOME/.agents/skills` vagy az adott projekt `.agents/skills` mappájába került-e. |
+| Az `npx` parancs hibázik. | Állj meg, és olvasd el a hibaüzenetet. Kérj segítséget a beépített `$skill-installer` használatához vagy a kézi telepítéshez; ne futtass ismeretlen parancsot. |
+| Egy bővítmény automatikus műveletet (hookot) kér. | Ne engedélyezd automatikusan. Olvasd el, mit futtatna, és csak akkor dönts, ha érted. |
+| A bővítmény nem jelenik meg telepítés után. | Indíts új beszélgetést, vagy zárd be és nyisd meg újra a Codexet. |
