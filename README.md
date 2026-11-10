@@ -1,4 +1,4 @@
-# Scide Skills – a Claude és Codex beállításom
+# Claude / Codex Skills – a Claude és Codex beállításom
 
 Ez a tároló megmutatja, milyen **bővítményeket (pluginokat)**, **skilleket** és **csatlakozókat** használok a Claude és a Codex asztali appjaiban, és segít ugyanezt **egyetlen bemásolt szöveggel** beállítani nálad is. Nem kell hozzá programozni tudni, és terminált sem kell megnyitnod: a parancsokat az MI futtatja le helyetted.
 
