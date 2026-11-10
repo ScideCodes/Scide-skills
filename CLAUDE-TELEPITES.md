@@ -15,22 +15,55 @@ A hivatalos útmutató mindig naprakész: https://code.claude.com/docs
 
 A bővítményeket a **Code** fülön, helyi (Local) munkamenetben tudod telepíteni. Felhős (cloud) munkamenetben nem érhető el a bővítménybrowser.
 
+### A) Mindent egyszerre (egyetlen szöveg)
+
+1. A Code fülön nyiss egy helyi munkamenetet.
+2. Másold be ezt a szöveget, és küldd el. A Claude lefuttatja a parancsokat, és a végén megmondja, mi sikerült:
+
+```
+Telepítsd nekem a Scide Skills pluginjeit. Csak az alábbi parancsokat futtasd, egymás után, és semmi mást ne módosíts. Ha egy parancs hibát ad (például már fel van véve), lépj a következőre. Ha a `claude` parancs nem található, állj meg, és mondd meg, hogy használjam a kattintós módszert. Kulcsot vagy jelszót ne kérj és ne írj fájlba. A végén sorold fel, mi sikerült és mi nem.
+
+claude plugin marketplace add anthropics/claude-plugins-official
+claude plugin marketplace add anthropics/knowledge-work-plugins
+claude plugin marketplace add JuliusBrussee/caveman
+claude plugin marketplace add DietrichGebert/ponytail
+claude plugin marketplace add mattpocock/skills
+claude plugin marketplace add addyosmani/agent-skills
+claude plugin marketplace add affaan-m/ECC
+claude plugin marketplace add cathrynlavery/diagram-design
+claude plugin marketplace add blader/humanizer
+claude plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
+
+claude plugin install claude-code-setup@claude-plugins-official
+claude plugin install design@knowledge-work-plugins
+claude plugin install cowork-plugin-management@knowledge-work-plugins
+claude plugin install caveman@caveman
+claude plugin install ponytail@ponytail
+claude plugin install mattpocock-skills@mattpocock
+claude plugin install agent-skills@addy-agent-skills
+claude plugin install ecc@ecc
+claude plugin install diagram-design@diagram-design
+claude plugin install humanizer@humanizer
+claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill
+```
+
+3. Indíts új munkamenetet, hogy minden betöltődjön.
+
+**Figyelem:** ezek idegenek kódját futtatják a gépeden (hookok, szkriptek), és az `ecc` nagyon sok skillt hoz. Ha nem akarod az egészet, használd a B) módszert, és csak a kellőket telepítsd. A pluginok és skillek listája: [SKILLEK.md](SKILLEK.md).
+
+Ebben **nincs** benne az `obsidian-notes` (az Anthropic könyvtárából jön, a B) módszerrel telepítsd), és nincs benne a `claude-mem` és a `claude-mem-cowork` sem. Ezek rögzítik, mit csinál a Claude, és az utóbbi a leírása szerint a cmem.ai-nak is küld adatot. Ha kéred őket, a B) módszerrel add hozzá a `thedotmack` piacteret (`thedotmack/claude-mem`), és olvasd el előtte, mit gyűjtenek.
+
+### B) Egyenként, kattintással
+
 1. A Code fülön nyiss egy helyi munkamenetet.
 2. Kattints a **+** gombra, és válaszd a **Plugins** menüpontot. Megnyílik a bővítménybrowser.
 3. Keresd meg a bővítményt, és kattints az **Install** gombra.
 
-Ezeket találod meg ott:
-
-| Plugin | Mire jó? |
-|---|---|
-| `design` | Dizájn-értékelés, UX-szövegek |
-| `obsidian-notes` | Obsidian-jegyzetek rendezése |
-
-A `caveman` és a `ponytail` nálam saját piactérből jön. Ha nem látod őket, kérd el tőlem a forrásukat, és add hozzá az appban:
+Ha egy plugint nem találsz a listában, valamelyik másik piactérben van. Add hozzá az appban:
 
 1. Nyisd meg a **Settings → Customize → Plugins** oldalt (a bal alsó sarokban a fiókmenüből érhető el a Settings).
 2. Kattints az **Add marketplace** gombra, és válaszd a **GitHub repo** lehetőséget.
-3. Add meg a forrást `<tulajdonos>/<tároló>` formában, majd telepítsd belőle a bővítményeket.
+3. Add meg a forrást `<tulajdonos>/<tároló>` formában (például `JuliusBrussee/caveman`), majd telepítsd belőle a bővítményeket. A források az A) módszer szövegében vannak.
 
 Telepítés után indíts új munkamenetet a Code fülön, hogy a bővítmények biztosan betöltődjenek.
 
