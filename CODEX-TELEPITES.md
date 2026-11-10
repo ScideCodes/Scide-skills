@@ -1,17 +1,17 @@
-# Telepítés Codexhez (kész szöveggel)
+# Telepítés a Codex asztali appba (kész szöveggel)
 
-A Codex az OpenAI kódoló asszisztense. A lenti szöveget be kell másolnod a Codexbe, és a Codex magától beállítja a skilleket.
+A Codex az OpenAI kódoló asszisztense. A lenti szöveget be kell másolnod a Codex appba, és a Codex magától beállítja a skilleket.
 
-## 1. Codex telepítése (ha még nincs)
+## 1. A Codex app telepítése (ha még nincs)
 
-Szükséged lesz a [Node.js](https://nodejs.org) telepítésére, aztán a terminálban:
-```
-npm install -g @openai/codex
-codex
-```
-Első indításkor jelentkezz be az OpenAI-fiókoddal.
+1. Töltsd le a Codex appot macOS-re vagy Windowsra innen: https://developers.openai.com/codex/app. Intel-alapú Macen az Intel verziót válaszd.
+2. Telepítsd, nyisd meg, és jelentkezz be a ChatGPT-fiókoddal (vagy egy OpenAI API-kulccsal).
+
+Terminálra és Node.js-re nincs szükség.
 
 ## 2. Másold be ezt a szöveget a Codexbe
+
+Nyiss egy új szálat (thread) az appban, és illeszd be ezt:
 
 ```
 Állítsd be nekem a skilleket ebből a tárolóból: https://github.com/ScideCodes/Scide-skills
@@ -20,19 +20,19 @@ Lépések:
 1. Olvasd el a README.md fájlt. Ott van a lista a pluginokról és skillekről: caveman, ponytail, design, obsidian-notes, valamint a beépített dokumentum-skillek.
 2. A Codex a skilleket innen tölti be: ~/.codex/skills/<név>/SKILL.md. A mappa neve a skill neve. Ha a ~/.codex/skills mappa nem létezik, hozd létre.
 3. Minden pluginhoz keresd meg a nyilvános forrástárolót. Ha nem találod, kérdezd meg tőlem az URL-t. Csak a skill-mappákat másold a ~/.codex/skills/ mappába. Hagyd ki a hookokat, a statusline-szkripteket és minden olyat, ami beállításfájlt módosít.
-4. A "Csatlakozók" listát hagyd ki, az Claude-fiókhoz kötött. Ha kell hozzá MCP-szerver, a `codex mcp add` paranccsal add hozzá, és kérj tőlem hitelesítő adatot. Kulcsot soha ne írj fájlba.
+4. A "Csatlakozók" listát hagyd ki, az Claude-fiókhoz kötött. Ha kell hozzá MCP-szerver, kérdezd meg tőlem, és mondd meg, hol adhatom hozzá a Codex app beállításaiban. Kulcsot vagy jelszót soha ne írj fájlba.
 5. Ne olvasd és ne másold a ~/.claude/.credentials.json és a ~/.claude.json fájlt.
-6. A végén írd ki, mit telepítettél és mit hagytál ki, majd mondd meg, hogy indítsam újra a Codexet.
+6. A végén írd ki, mit telepítettél és mit hagytál ki, majd mondd meg, hogy indítsam újra a Codex appot.
 ```
 
 ## 3. Ellenőrzés
 
-Indítsd újra a Codexet, és kérdezd meg: „Milyen skillek vannak telepítve?" A listában ott kell lennie a telepített skilleknek.
+Zárd be és nyisd meg újra a Codex appot, nyiss új szálat, és kérdezd meg: „Milyen skillek vannak telepítve?" A listában ott kell lennie a telepített skilleknek.
 
 ## Hibaelhárítás
 
 | Probléma | Megoldás |
 |---|---|
-| `npm: command not found` | Telepítsd a Node.js-t: https://nodejs.org |
+| Nem találom a Codex appot | Töltsd le innen: https://developers.openai.com/codex/app. Macen és Windowson is elérhető. |
 | A Codex nem találja a plugin forrását | Add meg neki az URL-t, amikor megkérdezi. |
-| Egy skill nem jelenik meg | Nézd meg, hogy a `~/.codex/skills/<név>/SKILL.md` fájl létezik-e, és indítsd újra a Codexet. |
+| Egy skill nem jelenik meg | Nézd meg, hogy a `~/.codex/skills/<név>/SKILL.md` fájl létezik-e, és indítsd újra a Codex appot. |

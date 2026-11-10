@@ -1,24 +1,24 @@
 # Scide Skills – a Claude és Codex beállításom
 
-Ez a tároló megmutatja, milyen **bővítményeket (pluginokat)**, **skilleket** és **csatlakozókat** használok a Claude Code-ban, és lépésről lépésre segít ugyanezt beállítani nálad is. Nem kell hozzá programozni tudni.
+Ez a tároló megmutatja, milyen **bővítményeket (pluginokat)**, **skilleket** és **csatlakozókat** használok a Claude és a Codex asztali appjaiban, és lépésről lépésre segít ugyanezt beállítani nálad is. Nem kell hozzá programozni tudni.
 
 > Ebben a tárolóban **nincs jelszó, kulcs vagy személyes adat**. A saját fiókjaidat te kötöd be.
 
 ## Gyors kezdés (3 lépés)
 
-1. **Telepítsd a Claude Code-ot** → [CLAUDE-TELEPITES.md](CLAUDE-TELEPITES.md), 1. lépés
+1. **Telepítsd a Claude asztali appot** → [CLAUDE-TELEPITES.md](CLAUDE-TELEPITES.md), 1. lépés
 2. **Telepítsd a bővítményeket** → ugyanott, 2. lépés
 3. **Kösd be a csatlakozókat** (Gmail, Drive stb.) → ugyanott, 3. lépés
 
-Codexet használsz? → [CODEX-TELEPITES.md](CODEX-TELEPITES.md): egy kész szöveget kell bemásolnod, a többit a Codex elvégzi.
+Codexet használsz? → [CODEX-TELEPITES.md](CODEX-TELEPITES.md): telepítsd a Codex asztali appot, és egy kész szöveget kell bemásolnod, a többit a Codex elvégzi.
 
 ## Mi micsoda? (rövid szótár)
 
 | Fogalom | Magyarul, egyszerűen |
 |---|---|
-| **Claude Code** | Mesterséges intelligencia a terminálodban, ami kódot ír, fájlokat szerkeszt és kérdésekre válaszol. |
+| **Claude Code** | Mesterséges intelligencia a Claude asztali app **Code** fülén, ami kódot ír, fájlokat szerkeszt és kérdésekre válaszol. |
 | **Skill** | Egy utasításcsomag (`SKILL.md` fájl), ami megtanít az MI-nek egy munkafolyamatot, pl. Word-dokumentum készítését. |
-| **Plugin (bővítmény)** | Egy csomag, amiben skillek, parancsok és más kiegészítők vannak. Egyetlen paranccsal telepíthető. |
+| **Plugin (bővítmény)** | Egy csomag, amiben skillek, parancsok és más kiegészítők vannak. Pár kattintással telepíthető az appban. |
 | **Marketplace** | Plugin-áruház: egy lista arról, hogy hol találsz telepíthető pluginokat. |
 | **Csatlakozó (connector / MCP)** | Összeköti az MI-t egy szolgáltatással, pl. Gmaillel vagy Google Drive-val. |
 
