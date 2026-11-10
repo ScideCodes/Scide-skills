@@ -17,9 +17,9 @@ Nyiss egy új szálat (thread) az appban, és illeszd be ezt:
 Állítsd be nekem a skilleket ebből a tárolóból: https://github.com/ScideCodes/Scide-skills
 
 Lépések:
-1. Olvasd el a README.md fájlt. Ott van a lista a pluginokról és skillekről: caveman, ponytail, design, obsidian-notes, valamint a beépített dokumentum-skillek.
+1. Olvasd el a README.md és a SKILLEK.md fájlt. A telepítendő pluginok forrásai (GitHub, tulajdonos/tároló): anthropics/knowledge-work-plugins (design, cowork-plugin-management mappa), JuliusBrussee/caveman, DietrichGebert/ponytail, mattpocock/skills, addyosmani/agent-skills, affaan-m/ECC, cathrynlavery/diagram-design, blader/humanizer, nextlevelbuilder/ui-ux-pro-max-skill. A claude-mem pluginokat és az obsidian-notes-t hagyd ki, hacsak nem kérem.
 2. A Codex a skilleket innen tölti be: ~/.codex/skills/<név>/SKILL.md. A mappa neve a skill neve. Ha a ~/.codex/skills mappa nem létezik, hozd létre.
-3. Minden pluginhoz keresd meg a nyilvános forrástárolót. Ha nem találod, kérdezd meg tőlem az URL-t. Csak a skill-mappákat másold a ~/.codex/skills/ mappába. Hagyd ki a hookokat, a statusline-szkripteket és minden olyat, ami beállításfájlt módosít.
+3. Minden pluginhoz használd a fenti forrást. Ha nem találod, kérdezd meg tőlem az URL-t. Csak a skill-mappákat másold a ~/.codex/skills/ mappába. Hagyd ki a hookokat, a statusline-szkripteket és minden olyat, ami beállításfájlt módosít.
 4. A "Csatlakozók" listát hagyd ki, az Claude-fiókhoz kötött. Ha kell hozzá MCP-szerver, kérdezd meg tőlem, és mondd meg, hol adhatom hozzá a Codex app beállításaiban. Kulcsot vagy jelszót soha ne írj fájlba.
 5. Ne olvasd és ne másold a ~/.claude/.credentials.json és a ~/.claude.json fájlt.
 6. A végén írd ki, mit telepítettél és mit hagytál ki, majd mondd meg, hogy indítsam újra a Codex appot.

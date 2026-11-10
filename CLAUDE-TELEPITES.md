@@ -15,41 +15,35 @@ A hivatalos útmutató mindig naprakész: https://code.claude.com/docs
 
 A bővítményeket a **Code** fülön, helyi (Local) munkamenetben tudod telepíteni. Felhős (cloud) munkamenetben nem érhető el a bővítménybrowser.
 
-### A) Mindent egyszerre (egyetlen szöveg)
+### A) Mindent egyszerre (egy csomag)
+
+A tárolóban van egy `scide-all` nevű csomag, ami egyetlen telepítéssel felteszi a lenti 10 plugint. Ezek: `design`, `cowork-plugin-management`, `caveman`, `ponytail`, `mattpocock-skills`, `agent-skills`, `ecc`, `diagram-design`, `humanizer`, `ui-ux-pro-max`.
+
+**Kattintással az appban:**
 
 1. A Code fülön nyiss egy helyi munkamenetet.
-2. Másold be ezt a szöveget, és küldd el. A Claude lefuttatja a parancsokat, és a végén megmondja, mi sikerült:
+2. Nyisd meg a **Settings → Customize → Plugins** oldalt, kattints az **Add marketplace** gombra, válaszd a **GitHub repo** lehetőséget, és add meg: `ScideCodes/Scide-skills`
+3. A **+ → Plugins** menüben keresd meg a `scide-all` csomagot, és kattints az **Install** gombra.
+
+**Vagy szöveggel:** másold be ezt a Code fül helyi munkamenetébe, és küldd el:
 
 ```
-Telepítsd nekem a Scide Skills pluginjeit. Csak az alábbi parancsokat futtasd, egymás után, és semmi mást ne módosíts. Ha egy parancs hibát ad (például már fel van véve), lépj a következőre. Ha a `claude` parancs nem található, állj meg, és mondd meg, hogy használjam a kattintós módszert. Kulcsot vagy jelszót ne kérj és ne írj fájlba. A végén sorold fel, mi sikerült és mi nem.
+Telepítsd nekem a Scide Skills pluginjeit. Csak az alábbi két parancsot futtasd, és semmi mást ne módosíts. Ha egy parancs hibát ad, mondd meg a pontos hibaüzenetet, és állj meg. Ha a `claude` parancs nem található, állj meg, és mondd meg, hogy használjam a kattintós módszert. Kulcsot vagy jelszót ne kérj és ne írj fájlba. A végén sorold fel, mi sikerült és mi nem.
 
+claude plugin marketplace add ScideCodes/Scide-skills
+claude plugin install scide-all@scide-skills
+```
+
+Ezután indíts új munkamenetet, hogy minden betöltődjön.
+
+A `claude-code-setup` (Anthropic) nevét a csomag nem használhatja, ezért azt külön kell felvenni. Ha kéred, ezt is add hozzá a fenti szöveghez:
+
+```
 claude plugin marketplace add anthropics/claude-plugins-official
-claude plugin marketplace add anthropics/knowledge-work-plugins
-claude plugin marketplace add JuliusBrussee/caveman
-claude plugin marketplace add DietrichGebert/ponytail
-claude plugin marketplace add mattpocock/skills
-claude plugin marketplace add addyosmani/agent-skills
-claude plugin marketplace add affaan-m/ECC
-claude plugin marketplace add cathrynlavery/diagram-design
-claude plugin marketplace add blader/humanizer
-claude plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
-
 claude plugin install claude-code-setup@claude-plugins-official
-claude plugin install design@knowledge-work-plugins
-claude plugin install cowork-plugin-management@knowledge-work-plugins
-claude plugin install caveman@caveman
-claude plugin install ponytail@ponytail
-claude plugin install mattpocock-skills@mattpocock
-claude plugin install agent-skills@addy-agent-skills
-claude plugin install ecc@ecc
-claude plugin install diagram-design@diagram-design
-claude plugin install humanizer@humanizer
-claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill
 ```
 
-3. Indíts új munkamenetet, hogy minden betöltődjön.
-
-**Figyelem:** ezek idegenek kódját futtatják a gépeden (hookok, szkriptek), és az `ecc` nagyon sok skillt hoz. Ha nem akarod az egészet, használd a B) módszert, és csak a kellőket telepítsd. A pluginok és skillek listája: [SKILLEK.md](SKILLEK.md).
+**Figyelem:** a csomag a pluginokat az eredeti tárolójukból tölti le, rögzített verzió nélkül, tehát a szerzők későbbi változtatásai is bekerülnek. Ezek idegenek kódját futtatják a gépeden (hookok, szkriptek), és az `ecc` nagyon sok skillt hoz. Ha nem akarod az egészet, használd a B) módszert, és csak a kellőket telepítsd. A pluginok és skillek listája: [SKILLEK.md](SKILLEK.md).
 
 Ebben **nincs** benne az `obsidian-notes` (az Anthropic könyvtárából jön, a B) módszerrel telepítsd), és nincs benne a `claude-mem` és a `claude-mem-cowork` sem. Ezek rögzítik, mit csinál a Claude, és az utóbbi a leírása szerint a cmem.ai-nak is küld adatot. Ha kéred őket, a B) módszerrel add hozzá a `thedotmack` piacteret (`thedotmack/claude-mem`), és olvasd el előtte, mit gyűjtenek.
 
@@ -63,7 +57,7 @@ Ha egy plugint nem találsz a listában, valamelyik másik piactérben van. Add 
 
 1. Nyisd meg a **Settings → Customize → Plugins** oldalt (a bal alsó sarokban a fiókmenüből érhető el a Settings).
 2. Kattints az **Add marketplace** gombra, és válaszd a **GitHub repo** lehetőséget.
-3. Add meg a forrást `<tulajdonos>/<tároló>` formában (például `JuliusBrussee/caveman`), majd telepítsd belőle a bővítményeket. A források az A) módszer szövegében vannak.
+3. Add meg a forrást `<tulajdonos>/<tároló>` formában (például `JuliusBrussee/caveman`), majd telepítsd belőle a bővítményeket. A források a `.claude-plugin/marketplace.json` fájlban vannak.
 
 Telepítés után indíts új munkamenetet a Code fülön, hogy a bővítmények biztosan betöltődjenek.
 

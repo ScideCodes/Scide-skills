@@ -1,0 +1,20 @@
+{
+  "name": "scide-all",
+  "version": "1.0.0",
+  "description": "Installs the whole Scide Skills set at once",
+  "dependencies": [
+    "design",
+    "cowork-plugin-management",
+    "caveman",
+    "ponytail",
+    "mattpocock-skills",
+    "agent-skills",
+    "ecc",
+    "diagram-design",
+    "humanizer",
+    "ui-ux-pro-max"
+  ],
+  "author": {
+    "name": "ScideCodes"
+  }
+}

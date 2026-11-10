@@ -7,7 +7,7 @@ Ez a tároló megmutatja, milyen **bővítményeket (pluginokat)**, **skilleket*
 ## Gyors kezdés (3 lépés)
 
 1. **Telepítsd a Claude asztali appot** → [CLAUDE-TELEPITES.md](CLAUDE-TELEPITES.md), 1. lépés
-2. **Telepítsd az összes bővítményt egyetlen szöveg bemásolásával** → ugyanott, 2. lépés
+2. **Telepítsd az összes bővítményt egyetlen csomaggal** (`scide-all`) → ugyanott, 2. lépés
 3. **Kösd be a csatlakozókat** (Gmail, Drive stb.) → ugyanott, 3. lépés
 
 Codexet használsz? → [CODEX-TELEPITES.md](CODEX-TELEPITES.md): telepítsd a Codex asztali appot, és egy kész szöveget kell bemásolnod, a többit a Codex elvégzi.
@@ -25,7 +25,7 @@ Codexet használsz? → [CODEX-TELEPITES.md](CODEX-TELEPITES.md): telepítsd a C
 ## Amit én használok
 
 ### Pluginok
-Az **egyszerre telepítő szöveg** (lásd [CLAUDE-TELEPITES.md](CLAUDE-TELEPITES.md), 2. lépés) az első 11 pluginot teszi fel. Minden skill neve a [SKILLEK.md](SKILLEK.md) fájlban van.
+A **`scide-all` csomag** (lásd [CLAUDE-TELEPITES.md](CLAUDE-TELEPITES.md), 2. lépés) egyetlen telepítéssel felteszi a lenti pluginokat, a `claude-code-setup` kivételével, amit külön kell felvenni. Minden skill neve a [SKILLEK.md](SKILLEK.md) fájlban van.
 
 | Plugin | Honnan? | Mire jó? |
 |---|---|---|

@@ -1,0 +1,96 @@
+{
+  "name": "scide-skills",
+  "description": "Scide Skills: one install for my whole Claude plugin and skill set",
+  "owner": {
+    "name": "ScideCodes"
+  },
+  "plugins": [
+    {
+      "name": "scide-all",
+      "source": "./plugins/scide-all",
+      "description": "Installs the Scide Skills set at once (10 plugins, see SKILLEK.md)"
+    },
+    {
+      "name": "design",
+      "source": {
+        "source": "git-subdir",
+        "url": "anthropics/knowledge-work-plugins",
+        "path": "design"
+      },
+      "description": "Anthropic: design critique, UX copy, accessibility audits, research synthesis"
+    },
+    {
+      "name": "cowork-plugin-management",
+      "source": {
+        "source": "git-subdir",
+        "url": "anthropics/knowledge-work-plugins",
+        "path": "cowork-plugin-management"
+      },
+      "description": "Anthropic: create, customize and manage plugins"
+    },
+    {
+      "name": "caveman",
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      },
+      "description": "Terse answers, fewer tokens"
+    },
+    {
+      "name": "ponytail",
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      },
+      "description": "Smallest working solution for coding tasks"
+    },
+    {
+      "name": "mattpocock-skills",
+      "source": {
+        "source": "github",
+        "repo": "mattpocock/skills"
+      },
+      "description": "Matt Pocock: grilling, specs, tickets, TDD, code review"
+    },
+    {
+      "name": "agent-skills",
+      "source": {
+        "source": "github",
+        "repo": "addyosmani/agent-skills"
+      },
+      "description": "Addy Osmani: full software lifecycle skills, spec to ship"
+    },
+    {
+      "name": "ecc",
+      "source": {
+        "source": "github",
+        "repo": "affaan-m/ECC"
+      },
+      "description": "Everything Claude Code: large bundle of skills, agents, commands and hooks"
+    },
+    {
+      "name": "diagram-design",
+      "source": {
+        "source": "github",
+        "repo": "cathrynlavery/diagram-design"
+      },
+      "description": "Many diagram types as HTML, SVG and PNG"
+    },
+    {
+      "name": "humanizer",
+      "source": {
+        "source": "github",
+        "repo": "blader/humanizer"
+      },
+      "description": "Rewrite AI-sounding text so it reads like the writer"
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "source": {
+        "source": "github",
+        "repo": "nextlevelbuilder/ui-ux-pro-max-skill"
+      },
+      "description": "UI/UX design intelligence: styles, palettes, fonts, stacks"
+    }
+  ]
+}
