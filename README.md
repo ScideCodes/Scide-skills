@@ -1,26 +1,44 @@
-# Claude / Codex skillek – egyszerű útmutató kezdőknek
+# Claude / Codex skillek – kezdő útmutató
 
-Ez a tároló egy személyes összeállítás: megmutatja, milyen Claude- és Codex-bővítményeket, skilleket és csatlakozókat használok. Az útmutatók segítenek a telepítésben akkor is, ha még nem használtál hasonló eszközt.
+Szeretnél skilleket telepíteni, de nem tudod, hol kezdd? Kövesd az alábbi lépéseket. **Nem kell mindkét alkalmazást telepítened** — válaszd a Claude vagy a Codex útmutatóját.
 
-> **Fontos:** a telepítés külső fejlesztők bővítményeit teszi elérhetővé. Mindig nézd meg, mit telepítesz, és csak azt hagyd jóvá, amiben megbízol. Jelszót, belépési kódot vagy API-kulcsot ne másolj be az MI-nek, és ne tölts fel a tárolóba.
+> **Biztonság:** csak olyan műveletet engedélyezz, amit értesz. Jelszót, belépési kódot és API-kulcsot soha ne másolj be az MI-nek.
 
-## Melyik útmutatót válasszam?
+## Kezdés – válaszd ki az alkalmazásodat
 
-- Claude-ot használsz? Nyisd meg a [Claude telepítési útmutatóját](CLAUDE-TELEPITES.md).
-- Codexet használsz? Nyisd meg a [Codex telepítési útmutatóját](CODEX-TELEPITES.md).
-- Csak a skillek nevét szeretnéd megnézni? Itt a [skillek teljes listája](SKILLEK.md).
+### Claude-ot használsz?
 
-A Claude és a Codex két külön alkalmazás. Nem kell mindkettőt telepítened: válaszd azt az útmutatót, amelyik alkalmazást használod.
+1. Nyisd meg a **Claude asztali alkalmazást**, és jelentkezz be.
+2. Kattints felül a **Code** fülre.
+3. Válaszd a **Local** (helyi) munkamenetet, majd válaszd ki azt a mappát, amellyel dolgozni szeretnél.
+4. Indíts egy új munkamenetet.
+5. Kattints az alábbi gombra, és kövesd az útmutatót: **[Claude bővítmények telepítése – lépésről lépésre](CLAUDE-TELEPITES.md)**.
 
-## Egyszerű szótár
+Az útmutatóban találsz egy kész szöveget: másold be a Claude Code beszélgetésébe, olvasd el a Claude engedélykéréseit, majd csak azokat hagyd jóvá, amelyeket értesz.
 
-| Kifejezés | Mit jelent? |
+### Codexet használsz?
+
+1. Nyisd meg a **Codex asztali alkalmazást**, és jelentkezz be.
+2. Nyiss egy **új beszélgetést** (a Codexben ez „thread” vagy „szál” néven is szerepelhet).
+3. Kattints az alábbi gombra, és kövesd az útmutatót: **[Codex bővítmények telepítése – lépésről lépésre](CODEX-TELEPITES.md)**.
+
+Az útmutatóban találsz egy kész szöveget: másold be a Codex beszélgetésébe, olvasd el a parancsokra vonatkozó engedélykéréseket, majd csak azokat hagyd jóvá, amelyeket értesz.
+
+### Csak a skill-listát keresed?
+
+Itt találod: **[Az összes skill listája](SKILLEK.md)**.
+
+## Mi ez a tároló?
+
+Ez a tároló Claude- és Codex-bővítmények, skillek és csatlakozók gyűjteménye. A telepítési útmutatók akkor is végigvezetnek a lépéseken, ha most használod először ezeket az eszközöket.
+
+| Kifejezés | Egyszerű magyarázat |
 |---|---|
-| **Claude Code** | A Claude kódolással és fájlokkal dolgozó módja. |
+| **Claude Code** | A Claude fájlokkal és kóddal dolgozó módja. |
 | **Codex** | Az OpenAI kódolási feladatokra használható asszisztense. |
 | **Skill** | Rövid útmutató, amely egy adott feladat elvégzésében segíti az MI-t. |
-| **Plugin (bővítmény)** | Telepíthető csomag. Egy csomag több skillt és más kiegészítőt is tartalmazhat. |
-| **Marketplace (piactér)** | A bővítmények katalógusa, ahonnan kiválaszthatod és telepítheted őket. |
+| **Bővítmény (plugin)** | Telepíthető csomag, amely több skillt és más kiegészítőt is tartalmazhat. |
+| **Piactér (marketplace)** | Katalógus, ahonnan bővítményeket lehet kiválasztani és telepíteni. |
 | **Csatlakozó** | Kapcsolat egy másik szolgáltatáshoz, például a Gmailhez vagy a Google Drive-hoz. Bekapcsoláskor a saját fiókoddal kell bejelentkezned. |
 | **Helyi munkamenet** | Olyan Claude Code-munkamenet, amely a kiválasztott mappával dolgozik a saját gépeden. |
 
@@ -45,7 +63,7 @@ A „Skillek” oszlop a bővítményhez tartozó skillek számát jelzi. A szá
 | `obsidian-notes` | Obsidian-jegyzetek kezelése | 1 | Anthropic | igen | nem |
 | `plugin-management` | Bővítmények készítése és beállítása | 2 | Anthropic | igen | nem |
 
-Az Anthropic bővítményei és a `claude-mem-cowork` csak Claude-ban használhatók. Nincs hozzájuk Codex-változat.
+Az Anthropic bővítményei és a `claude-mem-cowork` csak Claude-ban használhatók, Codex-változatuk nincs.
 
 ### Claude-ban eleve elérhető skillek
 
@@ -53,15 +71,15 @@ Ezeket a Claude-előfizetés tartalmazza, ezért külön telepítésük nem szü
 
 ### Csatlakozók
 
-A példák: Gmail, Google Drive, Figma, Brevo, Netlify, Firecrawl és GitHub. Csak azt a szolgáltatást csatlakoztasd, amelyre valóban szükséged van, és mindig a saját fiókoddal jelentkezz be.
+Például Gmail, Google Drive, Figma, Brevo, Netlify, Firecrawl és GitHub. Csak azt a szolgáltatást csatlakoztasd, amelyre valóban szükséged van, és mindig a saját fiókoddal jelentkezz be. A Claude-csatlakozók beállítását a [Claude telepítési útmutató](CLAUDE-TELEPITES.md#3-csatlakoztass-külső-szolgáltatásokat-ha-szeretnél) mutatja be.
 
 ## Biztonsági tudnivalók
 
 - A bővítmények kódja a gépeden futhat. Telepítés előtt nézd meg a forrásukat, és ne hagyj jóvá olyan műveletet, amelyet nem értesz.
-- Egyes bővítmények automatikusan futó parancsokat (hookokat) is beállíthatnak. A Claude- és Codex-útmutató elmondja, mire figyelj.
+- Egyes bővítmények automatikusan futó parancsokat (hookokat) is beállíthatnak. A telepítési útmutatók elmondják, mire figyelj.
 - A `claude-mem` rögzítheti a munkamenetek adatait. A Cowork-változat adatot küld a cmem.ai szolgáltatásnak. Ha ezt nem szeretnéd, ne telepítsd.
 - A belépési adataid, jelszavaid és API-kulcsaid maradjanak titokban. Ne másold be őket az MI-nek vagy egy nyilvános tárolóba.
 
 ## Elakadtál?
 
-A telepítési útmutatók végén egyszerű hibaelhárítási táblázatot találsz: [Claude](CLAUDE-TELEPITES.md#hibaelhárítás) · [Codex](CODEX-TELEPITES.md#hibaelhárítás).
+Nézd meg a részletes hibaelhárítást: [Claude útmutató](CLAUDE-TELEPITES.md#hibaelhárítás) · [Codex útmutató](CODEX-TELEPITES.md#hibaelhárítás).
